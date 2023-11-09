@@ -1,9 +1,8 @@
-name: Build and Push Docker Image with Jib
+name: Release
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [published]
 
 jobs:
   build-and-push:
@@ -26,7 +25,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Build and Push Docker Image
-        run: ./gradlew jib --image=wiselysolutions/corda-network-map:latest
+        run: ./gradlew jib --image=wiselysolutions/corda-network-map:${{ github.event.release.tag_name }}
 
       - name: Logout from Docker Hub
         run: docker logout
