@@ -26,7 +26,7 @@ import solutions.wisely.corda.nms.crypto.CertificateUtils
 
 @RestController
 class CertificatesController (
-    @Value(value = "\${doormanCN:CN=Corda Doorman CA}") doormanCommonName: String,
+    @Value(value = "\${DOORMAN_CN:CN=Corda Doorman CA}") doormanCommonName: String,
 ) {
     private val doormanCa: CertificateAndKeyPair = CertificateUtils.createDoormanCa(DEV_ROOT_CA, doormanCommonName)
     private val csrRequests: MutableMap<String, JcaPKCS10CertificationRequest> = ConcurrentHashMap()

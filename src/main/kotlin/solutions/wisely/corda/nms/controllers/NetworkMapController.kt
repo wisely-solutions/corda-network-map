@@ -37,8 +37,8 @@ import solutions.wisely.corda.nms.repository.NodeInfoRepository
 class NetworkMapController @Autowired constructor(
     @Autowired private val nodeInfoRepository: NodeInfoRepository,
     @Autowired private val notaryInfoLoader: NotaryInfoResolver,
-    @Value(value = "\${minimumPlatformVersion:1}") minPlatformVersion: String,
-    @Value(value = "\${networkMapCN:CN=NetworkMap}") networkMapCommonName: String
+    @Value(value = "\${MIN_PLATFORM_VERSION:4}") minPlatformVersion: String,
+    @Value(value = "\${NETWORK_MAP_CN:CN=NetworkMap}") networkMapCommonName: String
 ) {
     private val networkMapCa: CertificateAndKeyPair = CertificateUtils.createNetworkMapCa(
         DEV_ROOT_CA,
