@@ -26,7 +26,7 @@ In a docker compose, you should be looking for something like:
 
 ```
   nms:
-    image: wiselylda/corda-network-map:4.9
+    image: wiselysolutions/corda-network-map:4.9
     container_name: nms
     restart: "no"
     volumes:
