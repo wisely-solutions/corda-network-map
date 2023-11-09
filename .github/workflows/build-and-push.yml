@@ -26,7 +26,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Build and Push Docker Image
-        run: ./gradlew jib --image=wiselylda/corda-network-map:4.9
+        run: ./gradlew jib --image=wiselysolutions/corda-network-map:4.9
 
       - name: Logout from Docker Hub
         run: docker logout
